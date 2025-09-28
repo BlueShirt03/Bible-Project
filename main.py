@@ -35,6 +35,27 @@ for books in list_of_books:
     previous_node = new_node
     
 current = head
-while current is not None:
-    print(current.book_name)
-    current = current.next
+while True:
+    user_input = input("Enter command:")
+
+    if user_input == "next":
+        if current.next is not None:
+            current = current.next
+            print(current.book_name)
+        else:
+            print("You're at the last book, Can't go forward.")
+    elif user_input == "prev":
+        if current.prev is not None: 
+            current = current.prev
+            print(current.book_name)
+        else:
+            print("You are at the first book. Can't go backward")
+    elif user_input.startswith("jump"):
+        parts = user_input.split()
+        if len(parts) > 1:
+            book_name = parts[1]
+            print(book_name)
+    elif user_input == "quit":
+        break
+    else:
+        print("Invalid input")
