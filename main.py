@@ -38,7 +38,12 @@ current = head
 while True:
     user_input = input("Enter command:")
 
-    if user_input == "next":
+    if user_input == "current":
+        if current.book_name is not None:
+            print(current.book_name)
+        else:
+            print("You are not at a book.")
+    elif user_input == "next":
         if current.next is not None:
             current = current.next
             print(current.book_name)
